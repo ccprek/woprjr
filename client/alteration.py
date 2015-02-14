@@ -24,6 +24,10 @@ def detectLVL1(input):
     LVL1_REGEX = re.compile(r'(?i)\blvl1\b')
     return LVL1_REGEX.sub('level-1', input)
 
+def detectAmpersand(input):
+    AMPERSAND_REGEX = re.compile(r'&')
+    return AMPERSAND_REGEX.sub('and', input)
+
 def clean(input):
     """
         Manually adjust output text before it's translated into
@@ -35,4 +39,4 @@ def clean(input):
         Arguments:
         input -- original speech text to-be modified
     """
-    return detectLVL1(detectYears(simplifyURLs(input)))
+    return detectAmpersand(detectLVL1(detectYears(simplifyURLs(input))))
