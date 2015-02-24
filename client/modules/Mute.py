@@ -3,14 +3,15 @@ from sys import maxint
 import random
 import jasperpath
 import os
+import alsaaudio
 
-WORDS = ["MUTE", "UNMUTE"]
+WORDS = []
 
-PRIORITY = 4
+PRIORITY = -(maxint + 1)
 
 def handle(text, mic, profile):
     """
-        Reports that the user has unclear or unusable input.
+        Responds to user-input, typically speech text, and mutes or unmutes responses
 
         Arguments:
         text -- user-input, typically transcribed speech
@@ -19,12 +20,16 @@ def handle(text, mic, profile):
                    number)
     """
 
-    # Respond with random soundboard file
-    responses = os.listdir(jasperpath.data('audio', 'soundboards'))
-    response = random.choice(responses)
+    mixer = alsaaudio.Mixer()
 
-    mic.speaker.play(jasperpath.data('audio', 'soundboards', response))
-
+    if (mixer.getmute):
+        # Unmute
+        mixer.setmute(0)
+        mic.say("Unmuting")
+    else:
+        # Mute
+        mic.say("Muting")
+        mixer.setmute(1)
 
 def isValid(text):
     return True
