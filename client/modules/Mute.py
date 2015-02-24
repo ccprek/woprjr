@@ -5,9 +5,9 @@ import jasperpath
 import os
 import alsaaudio
 
-WORDS = []
+WORDS = ["MUTE", "UNMUTE"]
 
-PRIORITY = -(maxint + 1)
+PRIORITY = 5
 
 def handle(text, mic, profile):
     """
@@ -25,10 +25,10 @@ def handle(text, mic, profile):
     if (mixer.getmute):
         # Unmute
         mixer.setmute(0)
-        mic.say("Unmuting")
+        mic.say("Unmuting.")
     else:
         # Mute
-        mic.say("Muting")
+        mic.say("Muting.")
         mixer.setmute(1)
 
 def isValid(text):
