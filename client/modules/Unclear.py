@@ -4,9 +4,9 @@ import random
 import jasperpath
 import os
 
-WORDS = []
+WORDS = ["MUTE", "UNMUTE"]
 
-PRIORITY = -(maxint + 1)
+PRIORITY = 4
 
 def handle(text, mic, profile):
     """

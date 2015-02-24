@@ -4,7 +4,7 @@ from client import app_utils
 import re
 from semantic.numbers import NumberService
 
-WORDS = ["NEWS", "YES", "NO", "FIRST", "SECOND", "THIRD"]
+WORDS = ["NEWS"]
 
 PRIORITY = 3
 
