@@ -92,7 +92,7 @@ def getMinutesSections(date=None):
 def handle(text, mic, profile):
     """
         Responds to user-input, typically speech text, with a sample of
-        Hacker News's top headlines, sending them to the user over email
+        LVL1 Meeting Minutes, sending them to the user over email
         if desired.
 
         Arguments:
@@ -115,7 +115,7 @@ def handle(text, mic, profile):
 
 def isValid(text):
     """
-        Returns True if the input is related to Hacker News.
+        Returns True if the input is related to LVL1 Meeting Minutes.
 
         Arguments:
         text -- user-input, typically transcribed speech
