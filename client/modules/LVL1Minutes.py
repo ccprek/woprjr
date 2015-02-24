@@ -5,15 +5,7 @@ import re
 from bs4 import BeautifulSoup
 from bs4.element import Comment
 
-WORDS = ["YES", "SURE", "YEAH", "NO", "DON'T", "STOP", \
-         "FIRST_TIME", "VISITOR", "INFO", \
-         "EQUIPMENT", "AND", "SUPPLIES", "WANTED", "NEEDED", \
-         "SPACE", "UPGRADE", "UPGRADES", \
-         "DOWNGRADE", "DOWNGRADES", \
-         "REGULAR", "MEETUP", "MEETUPS", \
-         "UPCOMING", "WORKSHOP", "WORKSHOPS", "EVENT", "EVENTS", \
-         "PROJECT", "ROLL", "CALL", \
-         "MEETING", "NOTES"]
+WORDS = ["MINUTES", "MEETING"]
 
 PRIORITY = 4
 
