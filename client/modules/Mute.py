@@ -7,7 +7,7 @@ import alsaaudio
 
 WORDS = ["MUTE", "UNMUTE"]
 
-PRIORITY = 5
+PRIORITY = 4
 
 def handle(text, mic, profile):
     """
@@ -20,9 +20,9 @@ def handle(text, mic, profile):
                    number)
     """
 
-    mixer = alsaaudio.Mixer()
+    mixer = alsaaudio.Mixer(control='PCM', cardindex=1)
 
-    if (mixer.getmute):
+    if (mixer.getmute() == '1L'):
         # Unmute
         mixer.setmute(0)
         mic.say("Unmuting.")
