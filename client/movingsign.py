@@ -445,7 +445,7 @@ class MovingSign(object):
         mesg = self.cmd_write_special(b'E' + display_times)
         return mesg
 
-    def set_display_mode(self, display_mode):
+    def set_display_file_mode(self, display_file_mode):
         """
         Set display mode (1 bytes)
         Subcontrol command: 'F'
