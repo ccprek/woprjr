@@ -5,9 +5,15 @@ import re
 from bs4 import BeautifulSoup
 from bs4.element import Comment
 
-WORDS = ["MINUTES", "MEETING", "VISITOR", "EQUIPMENT", "SUPPLIES", "UPGRADES",
-         "DOWNGRADES", "MEETUPS", "WORKSHOPS", "EVENTS", "PROJECT", "ROLL", "CALL",
-         "NOTES"]
+WORDS = ["YES", "SURE", "YEAH", "NO", "DON'T", "STOP", \
+         "FIRST_TIME", "VISITOR", "INFO", \
+         "EQUIPMENT", "AND", "SUPPLIES", "WANTED", "NEEDED", \
+         "SPACE", "UPGRADE", "UPGRADES", \
+         "DOWNGRADE", "DOWNGRADES", \
+         "REGULAR", "MEETUP", "MEETUPS", \
+         "UPCOMING", "WORKSHOP", "WORKSHOPS", "EVENT", "EVENTS", \
+         "PROJECT", "ROLL", "CALL", \
+         "MEETING", "NOTES"]
 
 PRIORITY = 4
 
@@ -94,7 +100,7 @@ def getMinutesSections(date=None):
 def handle(text, mic, profile):
     """
         Responds to user-input, typically speech text, with a sample of
-        LVL1 Meeting Minutes, sending them to the user over email
+        Hacker News's top headlines, sending them to the user over email
         if desired.
 
         Arguments:
@@ -117,7 +123,7 @@ def handle(text, mic, profile):
 
 def isValid(text):
     """
-        Returns True if the input is related to LVL1 Meeting Minutes.
+        Returns True if the input is related to Hacker News.
 
         Arguments:
         text -- user-input, typically transcribed speech
