@@ -1,6 +1,7 @@
 # -*- coding: utf-8-*-
 from sys import maxint
 import random
+import re
 import jasperpath
 import os
 import alsaaudio
@@ -22,7 +23,9 @@ def handle(text, mic, profile):
 
     mixer = alsaaudio.Mixer(control='PCM', cardindex=1)
 
-    if (mixer.getmute() == '1L'):
+    print mixer.getmute()[0]
+
+    if (mixer.getmute()[0] == 1):
         # Unmute
         mixer.setmute(0)
         mic.say("Unmuting.")
@@ -32,4 +35,10 @@ def handle(text, mic, profile):
         mixer.setmute(1)
 
 def isValid(text):
-    return True
+    """
+    Returns True if the input is related to mute
+
+    Arguments:
+    text -- user-input, typically transcribed speech
+    """
+    return bool(re.search(r'\bmute\b', text, re.IGNORECASE))
